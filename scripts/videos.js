@@ -11,19 +11,27 @@ const displayVideos = (videos) => {
     videos.forEach(video => {
         const videoCard = document.createElement("div");
         videoCard.innerHTML = `
-            <div class="card bg-base-100 shadow-sm">
-                <figure>
-                    <img
-                    src="${video.thumbnail}" />
+            <div class="card bg-base-100 ">
+                <figure class="relative">
+                    <img class="w-full h-[150px] object-cover" src="${video.thumbnail}" />
+                    <span class="absolute bottom-2 right-2 text-white text-sm rounded bg-black px-2">3 hrs 56 min ago</span>
                 </figure>
-                <div class="card-body">
-                    <h2 class="card-title">${video.title}</h2>
-                    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-                    <div class="card-actions justify-end">
-                        <button class="btn btn-primary">Buy Now</button>
+            <div class="flex gap-3 px-0 py-5">
+                <div class="profile">
+                    <div class="avatar">
+                        <div class="w-6 rounded-full">
+                            <img src="${video.authors[0].profile_picture}" />
+                        </div>
                     </div>
-                </div>    
+                </div>
+                <div class="intro">
+                    <h2 class="font-bold">Midnight Serenade</h2>
+                    <p class="text-sm text-gray-400 flex gap-1 items-center">${video.authors[0].profile_name} <img class="w-5 h-5"
+                            src="https://img.icons8.com/?size=48&id=98A4yZTt9abw&format=png" alt=""></p>
+                    <p class="text-sm text-gray-400">${video.others.views} views</p>
+                </div>
             </div>
+        </div>
         `
         console.log(video)
         videoContainer.append(videoCard)
