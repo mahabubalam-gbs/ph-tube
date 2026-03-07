@@ -8,10 +8,12 @@ function loadCategories() {
 function displayCategories(categories) {
     const categoryContainer = document.getElementById("category-container");
 
-    for (category of categories) {
+    for (const category of categories) {
         const button = document.createElement("button")
         button.classList = "btn btn-sm hover:bg-red-500 hover:text-white"
-        button.innerText = `${category.category}`
+        button.innerText = category.category
+        button.onclick = () => loadCategoryVideos(category
+            .category_id);
         categoryContainer.append(button)
     }
 }
