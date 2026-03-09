@@ -1,7 +1,11 @@
 function loadVideos() {
     fetch("https://openapi.programming-hero.com/api/phero-tube/videos")
         .then(res => res.json())
-        .then(data => displayVideos(data.videos))
+        .then(data => {
+            removeActiveClass();
+            document.getElementById("btn-all").classList.add("active")
+            displayVideos(data.videos)
+        })
 }
 
 const displayVideos = (videos) => {
@@ -48,3 +52,5 @@ const displayVideos = (videos) => {
         videoContainer.append(videoCard)
     })
 }
+
+loadVideos()

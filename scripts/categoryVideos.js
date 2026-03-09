@@ -4,5 +4,10 @@ const loadCategoryVideos = (id) => {
 
     fetch(url)
         .then(res => res.json())
-        .then(data => displayVideos(data.category))
+        .then(data => {
+            removeActiveClass()
+            const clickedButton = document.getElementById(`btn-${id}`);
+            clickedButton.classList.add("active")
+            displayVideos(data.category)
+        })
 }

@@ -10,6 +10,7 @@ function displayCategories(categories) {
 
     for (const category of categories) {
         const button = document.createElement("button")
+        button.id = `btn-${category.category_id}`;
         button.classList = "btn btn-sm hover:bg-red-500 hover:text-white"
         button.innerText = category.category
         button.onclick = () => loadCategoryVideos(category
