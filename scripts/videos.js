@@ -26,11 +26,12 @@ const displayVideos = (videos) => {
     videos.forEach(video => {
         const videoCard = document.createElement("div");
         videoCard.innerHTML = `
-            <div class="card bg-base-100 ">
-                <figure class="relative">
-                    <img class="w-full h-[150px] object-cover" src="${video.thumbnail}" />
-                    <span class="absolute bottom-2 right-2 text-white text-sm rounded bg-black px-2">3 hrs 56 min ago</span>
-                </figure>
+            
+        <div class="card bg-base-100 ">
+            <figure class="relative">
+                <img class="w-full h-[150px] object-cover" src="${video.thumbnail}" />
+                <span class="absolute bottom-2 right-2 text-white text-sm rounded bg-black px-2">3 hrs 56 min ago</span>
+            </figure>
             <div class="flex gap-3 px-0 py-5">
                 <div class="profile">
                     <div class="avatar">
@@ -39,14 +40,14 @@ const displayVideos = (videos) => {
                         </div>
                     </div>
                 </div>
-                <div class="intro">
-                    <h2 class="font-bold">${video.title
-            }</h2>
-                    <p class="text-sm text-gray-400 flex gap-1 items-center">${video.authors[0].profile_name} <img class="w-5 h-5"
-                            src="https://img.icons8.com/?size=48&id=98A4yZTt9abw&format=png" alt=""></p>
-                    <p class="text-sm text-gray-400">${video.others.views} views</p>
-                </div>
             </div>
+            <div class="intro">
+                <h2 class="font-bold">${video.title}</h2>
+                <p class="text-sm text-gray-400 flex gap-1 items-center">${video.authors[0].profile_name} <img
+                        class="w-5 h-5" src="https://img.icons8.com/?size=48&id=98A4yZTt9abw&format=png" alt=""></p>
+                <p class="text-sm text-gray-400">${video.others.views} views</p>
+            </div>
+            <button onclick=loadVideoDetails('${video.video_id}') class="btn btn-block">Show Details</button>
         </div>
         `
         videoContainer.append(videoCard)
