@@ -36,8 +36,8 @@ const displayVideoDetails = (video) => {
                         </div>
                     </div>
                     <div class="intro">
-                        <h2 class="font-bold text-xl flex gap-1 items-center">${video.authors[0].profile_name} <img
-                            class="w-5 h-5" src="https://img.icons8.com/?size=48&id=98A4yZTt9abw&format=png" alt=""></h2>
+                        <h2 class="font-bold text-xl flex gap-1 items-center">${video.authors[0].profile_name} ${video.authors[0].verified == true ? `<img
+                            class="w-5 h-5" src="https://img.icons8.com/?size=48&id=98A4yZTt9abw&format=png" alt="">` : ``}</h2>
                     </div>
                 </div>                    
             </div>
