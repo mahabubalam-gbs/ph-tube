@@ -1,10 +1,10 @@
-function loadVideos() {
-    fetch("https://openapi.programming-hero.com/api/phero-tube/videos")
+function loadVideos(searchText = "") {
+    fetch(`https://openapi.programming-hero.com/api/phero-tube/videos?title=${searchText}`)
         .then(res => res.json())
         .then(data => {
             removeActiveClass();
-            document.getElementById("btn-all").classList.add("active")
-            displayVideos(data.videos)
+            document.getElementById("btn-all").classList.add("active");
+            displayVideos(data.videos);
         })
 }
 
@@ -49,11 +49,16 @@ const displayVideos = (videos) => {
                 </div>
             </div>
             
-            <button onclick=loadVideoDetails('${video.video_id}') class="btn btn-block">Show Details</button>
+            <button onclick="loadVideoDetails('${video.video_id}')" class="btn btn-block">Show Details</button>
         </div>
         `
         videoContainer.append(videoCard)
     })
 }
+
+document.getElementById("search-input").addEventListener("keyup", function (e) {
+    const input = e.target.value;
+    loadVideos(input)
+})
 
 loadVideos()
