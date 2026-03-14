@@ -7,7 +7,6 @@ function loadVideoDetails(video_id) {
 }
 
 const displayVideoDetails = (video) => {
-    console.log(video)
     document.getElementById("video_details").showModal();
     const detailsContainer = document.getElementById("details-container");
 

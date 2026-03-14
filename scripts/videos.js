@@ -1,4 +1,5 @@
 function loadVideos(searchText = "") {
+    showLoader()
     fetch(`https://openapi.programming-hero.com/api/phero-tube/videos?title=${searchText}`)
         .then(res => res.json())
         .then(data => {
@@ -20,6 +21,7 @@ const displayVideos = (videos) => {
                 <h2 class="text-2xl font-bold">Oops!! Sorry, There is no content here</h2>
             </div>
         `
+        hideLoader()
         return;
     }
 
@@ -54,6 +56,7 @@ const displayVideos = (videos) => {
         `
         videoContainer.append(videoCard)
     })
+    hideLoader();
 }
 
 document.getElementById("search-input").addEventListener("keyup", function (e) {
