@@ -19,4 +19,4 @@ function displayCategories(categories) {
     }
 }
 
-loadCategories()
+loadCategories();
